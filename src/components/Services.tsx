@@ -25,9 +25,9 @@ const Services = () => {
     },
     {
       icon: Wrench,
-      title: "Instalação de Acessórios",
-      description: "Instalação profissional de acessórios automotivos com qualidade e segurança.",
-      features: ["Insulfilm profissional", "Acessórios diversos", "Instalação especializada", "Garantia do serviço"]
+      title: "Lubrificação de portas e vidros",
+      description: "Fazemos a lubrificação de portas, porta-malas e canaletas de vidros para que seu automóvel não fique travando ou rangendo quando abre.",
+      features: ["Produtos profissionais", "Aumenta a durabilidade", "Diminui o ruído", "Garantia do serviço"]
     },
     {
       icon: PaintRoller,
@@ -47,12 +47,6 @@ const Services = () => {
       description: "Tratamento especializado para bancos de couro, mantendo-os macios e protegidos.",
       features: ["Produtos específicos", "Hidratação profunda", "Proteção contra ressecamento", "Durabilidade prolongada"]
     },
-    {
-      icon: Wrench,
-      title: "Lubrificação de Portas e Vidros",
-      description: "Manutenção preventiva para portas e vidros, garantindo funcionamento suave e duradouro.",
-      features: ["Lubrificação de dobradiças", "Tratamento de borrachas", "Manutenção de vidros elétricos", "Prevenção de desgaste"]
-    }
   ];
 
   return (
