@@ -46,6 +46,12 @@ const Services = () => {
       title: "Hidratação de Couro",
       description: "Tratamento especializado para bancos de couro, mantendo-os macios e protegidos.",
       features: ["Produtos específicos", "Hidratação profunda", "Proteção contra ressecamento", "Durabilidade prolongada"]
+    },
+    {
+      icon: Wrench,
+      title: "Lubrificação de Portas e Vidros",
+      description: "Manutenção preventiva para portas e vidros, garantindo funcionamento suave e duradouro.",
+      features: ["Lubrificação de dobradiças", "Tratamento de borrachas", "Manutenção de vidros elétricos", "Prevenção de desgaste"]
     }
   ];
 
