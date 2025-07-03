@@ -175,7 +175,7 @@ const Services = () => {
               {videos.map((video, index) => (
                 <div 
                   key={video.id || index} 
-                  className="aspect-video bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-105 relative group"
+                  className="aspect-[4/3] bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-105 relative group"
                 >
                   <video
                     src={video.link}
