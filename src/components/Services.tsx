@@ -1,8 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Eye, Car, Wrench, PaintRoller } from "lucide-react";
+import { Eye, Car, Wrench, PaintRoller, Loader2 } from "lucide-react";
+import { useDropboxPhotos } from "@/hooks/useDropboxPhotos";
 
 const Services = () => {
+  const { photos, loading, error } = useDropboxPhotos();
+  
   const services = [
     {
       icon: Eye,
@@ -112,17 +115,25 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {Array.from({ length: 30 }, (_, index) => {
-              const imageNumber = index + 1;
-              return (
+          {loading ? (
+            <div className="flex justify-center items-center py-12">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              <span className="ml-2 text-muted-foreground">Carregando fotos...</span>
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Erro ao carregar fotos: {error}</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+              {photos.map((photo, index) => (
                 <div 
-                  key={imageNumber} 
+                  key={photo.id || index} 
                   className="aspect-square bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-105"
                 >
                   <img
-                    src={`https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=400&fit=crop&crop=center&q=80&auto=format`}
-                    alt={`Trabalho realizado ${imageNumber}`}
+                    src={photo.link}
+                    alt={`Trabalho realizado - ${photo.nome}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     onError={(e) => {
@@ -132,9 +143,9 @@ const Services = () => {
                     }}
                   />
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="text-center mt-16">
