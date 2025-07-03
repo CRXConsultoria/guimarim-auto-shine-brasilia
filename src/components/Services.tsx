@@ -1,10 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Eye, Car, Wrench, PaintRoller, Loader2 } from "lucide-react";
+import { Eye, Car, Wrench, PaintRoller, Loader2, Play } from "lucide-react";
 import { useDropboxPhotos } from "@/hooks/useDropboxPhotos";
+import { useDropboxVideos } from "@/hooks/useDropboxVideos";
 
 const Services = () => {
   const { photos, loading, error } = useDropboxPhotos();
+  const { videos, loading: videosLoading, error: videosError } = useDropboxVideos();
   
   const services = [
     {
@@ -142,6 +144,53 @@ const Services = () => {
                       target.parentElement!.style.display = 'none';
                     }}
                   />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Galeria de Vídeos */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Galeria de Vídeos
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Veja nossos trabalhos em ação através de vídeos que mostram o processo e resultado dos nossos serviços
+            </p>
+          </div>
+
+          {videosLoading ? (
+            <div className="flex justify-center items-center py-12">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              <span className="ml-2 text-muted-foreground">Carregando vídeos...</span>
+            </div>
+          ) : videosError ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Erro ao carregar vídeos: {videosError}</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {videos.map((video, index) => (
+                <div 
+                  key={video.id || index} 
+                  className="aspect-video bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-105 relative group"
+                >
+                  <video
+                    src={video.link}
+                    className="w-full h-full object-cover"
+                    controls
+                    preload="metadata"
+                    onError={(e) => {
+                      const target = e.target as HTMLVideoElement;
+                      target.style.display = 'none';
+                      target.parentElement!.style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center pointer-events-none">
+                    <Play className="h-12 w-12 text-white opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
                 </div>
               ))}
             </div>
