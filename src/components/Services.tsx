@@ -147,11 +147,6 @@ const Services = () => {
                   alt={`Trabalho realizado - ${index + 1}`}
                   className="w-full h-full object-cover"
                   loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.parentElement!.style.display = 'none';
-                  }}
                 />
               </div>
             ))}
