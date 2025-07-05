@@ -5,26 +5,26 @@ import { Eye, Car, Wrench, PaintRoller } from "lucide-react";
 const Services = () => {
   // Array de fotos do imgbb
   const photos = [
-    "https://i.ibb.co/Gv9RcQG/photo1.jpg",
-    "https://i.ibb.co/HpGPS11/photo2.jpg", 
-    "https://i.ibb.co/PGXGr9m/photo3.jpg",
-    "https://i.ibb.co/jPDkJbQ/photo4.jpg",
-    "https://i.ibb.co/99rgFgD/photo5.jpg",
-    "https://i.ibb.co/fYSntGC/photo6.jpg",
-    "https://i.ibb.co/zh5p4d6/photo7.jpg",
-    "https://i.ibb.co/HTD080p/photo8.jpg",
-    "https://i.ibb.co/6JBF4VPp/photo9.jpg",
-    "https://i.ibb.co/VY1xVms/photo10.jpg",
-    "https://i.ibb.co/675nnC6/photo11.jpg",
-    "https://i.ibb.co/nqX80q5/photo12.jpg",
-    "https://i.ibb.co/d4LQx4T/photo13.jpg",
-    "https://i.ibb.co/V4dcg2F/photo14.jpg",
-    "https://i.ibb.co/xqP6cYp/photo15.jpg",
-    "https://i.ibb.co/B5xCdJ7/photo16.jpg",
-    "https://i.ibb.co/Z69KqM7/photo17.jpg",
-    "https://i.ibb.co/JRXN3C2/photo18.jpg",
-    "https://i.ibb.co/KMRFK6m/photo19.jpg",
-    "https://i.ibb.co/wFHwNkW/photo20.jpg"
+    "https://i.ibb.co/8Db96gGj/IMG-20250703-WA0028.jpg",
+    "https://i.ibb.co/BKT6pdd1/IMG-20250703-WA0029.jpg",
+    "https://i.ibb.co/m5Z5RXDN/IMG-20250703-WA0030.jpg",
+    "https://i.ibb.co/fzHdDqyG/IMG-20250703-WA0031.jpg",
+    "https://i.ibb.co/rGw0C0jh/IMG-20250703-WA0032.jpg",
+    "https://i.ibb.co/gM7PwFDb/IMG-20250703-WA0033.jpg",
+    "https://i.ibb.co/vxBpj9Xd/IMG-20250703-WA0034.jpg",
+    "https://i.ibb.co/VYWd4dpq/IMG-20250703-WA0035.jpg",
+    "https://i.ibb.co/7N4KG8WT/IMG-20250703-WA0036.jpg",
+    "https://i.ibb.co/whk7ysfL/IMG-20250703-WA0037.jpg",
+    "https://i.ibb.co/fz711wmy/IMG-20250703-WA0038.jpg",
+    "https://i.ibb.co/xKn8sKRT/IMG-20250703-WA0039.jpg",
+    "https://i.ibb.co/whwKjhkK/IMG-20250703-WA0040.jpg",
+    "https://i.ibb.co/H80ftnc/IMG-20250703-WA0041.jpg",
+    "https://i.ibb.co/3mGc8vDC/IMG-20250703-WA0042.jpg",
+    "https://i.ibb.co/pB8LGTs9/IMG-20250703-WA0043.jpg",
+    "https://i.ibb.co/d0Z685xX/IMG-20250703-WA0044.jpg",
+    "https://i.ibb.co/svLhWtQw/IMG-20250703-WA0045.jpg",
+    "https://i.ibb.co/GKBcH7F/IMG-20250703-WA0046.jpg",
+    "https://i.ibb.co/W49PWhyD/IMG-20250703-WA0047.jpg"
   ];
   
   const services = [
