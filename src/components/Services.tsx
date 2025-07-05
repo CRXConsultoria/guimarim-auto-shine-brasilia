@@ -1,12 +1,31 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Eye, Car, Wrench, PaintRoller, Loader2, Play } from "lucide-react";
-import { useDropboxPhotos } from "@/hooks/useDropboxPhotos";
-import { useDropboxVideos } from "@/hooks/useDropboxVideos";
+import { Eye, Car, Wrench, PaintRoller } from "lucide-react";
 
 const Services = () => {
-  const { photos, loading, error } = useDropboxPhotos();
-  const { videos, loading: videosLoading, error: videosError } = useDropboxVideos();
+  // Array de fotos do imgbb
+  const photos = [
+    "https://i.ibb.co/Gv9RcQG/photo1.jpg",
+    "https://i.ibb.co/HpGPS11/photo2.jpg", 
+    "https://i.ibb.co/PGXGr9m/photo3.jpg",
+    "https://i.ibb.co/jPDkJbQ/photo4.jpg",
+    "https://i.ibb.co/99rgFgD/photo5.jpg",
+    "https://i.ibb.co/fYSntGC/photo6.jpg",
+    "https://i.ibb.co/zh5p4d6/photo7.jpg",
+    "https://i.ibb.co/HTD080p/photo8.jpg",
+    "https://i.ibb.co/6JBF4VPp/photo9.jpg",
+    "https://i.ibb.co/VY1xVms/photo10.jpg",
+    "https://i.ibb.co/675nnC6/photo11.jpg",
+    "https://i.ibb.co/nqX80q5/photo12.jpg",
+    "https://i.ibb.co/d4LQx4T/photo13.jpg",
+    "https://i.ibb.co/V4dcg2F/photo14.jpg",
+    "https://i.ibb.co/xqP6cYp/photo15.jpg",
+    "https://i.ibb.co/B5xCdJ7/photo16.jpg",
+    "https://i.ibb.co/Z69KqM7/photo17.jpg",
+    "https://i.ibb.co/JRXN3C2/photo18.jpg",
+    "https://i.ibb.co/KMRFK6m/photo19.jpg",
+    "https://i.ibb.co/wFHwNkW/photo20.jpg"
+  ];
   
   const services = [
     {
@@ -117,84 +136,26 @@ const Services = () => {
             </p>
           </div>
 
-          {loading ? (
-            <div className="flex justify-center items-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
-              <span className="ml-2 text-muted-foreground">Carregando fotos...</span>
-            </div>
-          ) : error ? (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Erro ao carregar fotos: {error}</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-              {photos.map((photo, index) => (
-                <div 
-                  key={photo.id || index} 
-                  className="aspect-square bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-105"
-                >
-                  <img
-                    src={photo.link}
-                    alt={`Trabalho realizado - ${photo.nome}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.parentElement!.style.display = 'none';
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Galeria de Vídeos */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Galeria de Vídeos
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Veja nossos trabalhos em ação através de vídeos que mostram o processo e resultado dos nossos serviços
-            </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {photos.map((photo, index) => (
+              <div 
+                key={index} 
+                className="aspect-square bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-105"
+              >
+                <img
+                  src={photo}
+                  alt={`Trabalho realizado - ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.parentElement!.style.display = 'none';
+                  }}
+                />
+              </div>
+            ))}
           </div>
-
-          {videosLoading ? (
-            <div className="flex justify-center items-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
-              <span className="ml-2 text-muted-foreground">Carregando vídeos...</span>
-            </div>
-          ) : videosError ? (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Erro ao carregar vídeos: {videosError}</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {videos.map((video, index) => (
-                <div 
-                  key={video.id || index} 
-                  className="aspect-[9/16] bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-105 relative group"
-                >
-                  <video
-                    src={video.link}
-                    className="w-full h-full object-cover"
-                    controls
-                    preload="metadata"
-                    onError={(e) => {
-                      const target = e.target as HTMLVideoElement;
-                      target.style.display = 'none';
-                      target.parentElement!.style.display = 'none';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center pointer-events-none">
-                    <Play className="h-12 w-12 text-white opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
 
         <div className="text-center mt-16">
