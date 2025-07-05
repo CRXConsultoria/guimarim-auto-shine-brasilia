@@ -153,6 +153,41 @@ const Services = () => {
           </div>
         </div>
 
+        {/* Galeria de Vídeos */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Galeria de Vídeos
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Veja nossos serviços em ação através destes vídeos demonstrativos
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            {[
+              "R4cf--xVAyI",
+              "cZYJxgcag2Y", 
+              "o849ae-18SI",
+              "5sbAgu0PZ3Q"
+            ].map((videoId, index) => (
+              <div 
+                key={index}
+                className="aspect-[9/16] bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-105"
+              >
+                <iframe
+                  src={`https://www.youtube.com/embed/${videoId}`}
+                  title={`Vídeo demonstrativo - ${index + 1}`}
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="text-center mt-16">
           <div className="bg-gradient-card rounded-2xl p-8 shadow-premium">
             <h3 className="text-2xl font-bold text-primary mb-4">
