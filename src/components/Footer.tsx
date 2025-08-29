@@ -1,8 +1,6 @@
 import { Car } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-primary text-primary-foreground py-12">
+  return <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Logo and Description */}
@@ -14,10 +12,7 @@ const Footer = () => {
                 <p className="text-sm text-primary-foreground/80">Estética Automotiva</p>
               </div>
             </div>
-            <p className="text-primary-foreground/80 leading-relaxed">
-              Especialistas em estética automotiva em Sobradinho, Brasília. 
-              Cuidamos do seu veículo com a qualidade que ele merece.
-            </p>
+            <p className="text-primary-foreground/80 leading-relaxed">Especialistas em estética automotiva em Sobradinho, Brasília/DF. Cuidamos do seu veículo com a qualidade que ele merece.</p>
           </div>
 
           {/* Services */}
@@ -64,8 +59,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
